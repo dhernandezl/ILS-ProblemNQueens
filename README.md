@@ -6,3 +6,6 @@
   <li>Select the best neighbor of all (best-improvement rule).</li>
   <li>Select the first neighbor that improves the solution (first-improvement rule).</li>
 </ol>
+<p>
+The eight queens problem is a very popular strategy that consists of placing eight queens within a chessboard without threatening them. Finding the solution for different dimensions is the same as finding the solution for a minimal problem.
+</p>
