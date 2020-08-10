@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <array>
-#define NQUEENS 8
+#define NQUEENS 16 // 8
 #define number_neighbor 15
 
 using namespace std;
