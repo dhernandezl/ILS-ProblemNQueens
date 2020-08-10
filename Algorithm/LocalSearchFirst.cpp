@@ -1,155 +1,107 @@
-/*
- * LocalSearchFirst.cpp
- *
- *  Created on: 28 jul. 2020
- *      Author: DHL-SIS-ING
- */
-
-#include "LocalSearchFirst.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <list>
-#include <time.h>
-#define NREINAS 16
-#define t_neighbor 15
+#include <array>
+#define NQUEENS 8
+#define number_neighbor 15
+
 using namespace std;
 
-vector<vector<int>> neighbour_sys;
+namespace localsearch{
 
-void print_vector(vector<int> s) {
-	for (int x : s) { printf("%d ", x); }
-	printf("\n");
-}
-
-vector<int> initial_solution() {
-	vector<int> solution;
-	srand(time(NULL));
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		solution.push_back(rand() % NREINAS + 1);
+	vector<int> initial_solution() {
+		vector<int> solution;
+		solution.resize(NQUEENS);
+		for (auto &element : solution) {
+			element = rand() % NQUEENS + 1;
+		}
+		return solution;
 	}
-	return solution;
-}
 
-int cost(vector<int> queens_sol) {
-	int h = 0;
-	vector<int> aux_sol;
-	//sum column
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		for (size_t j = i + 1; j < NREINAS; j++)
-		{
-			if (queens_sol[i] == queens_sol[j])
-			{
-				h++;
-				break;
+	int cost(const std::vector<int> &solution_vector) {
+		int h = 0;
+		//sum column
+		for (size_t i = 0; i < solution_vector.size(); i++) {
+			for (size_t j = i + 1; j < solution_vector.size(); j++) {
+				if (solution_vector[i] == solution_vector[j]) {
+					h++;
+					break;
+				}
 			}
 		}
-	}
-	//sum diagonal
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		aux_sol.push_back(queens_sol[i] - (i + 1));
-	}
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		for (size_t j = i + 1; j < NREINAS; j++)
-		{
-			if (aux_sol[i] == aux_sol[j])
-			{
-				h++;
-				break;
+		//sum diagonal
+		for (size_t i = 0; i < solution_vector.size(); i++) {
+			for (size_t j = i + 1; j < solution_vector.size(); j++) {
+				if ((solution_vector[i] - (i + 1))
+						== (solution_vector[j] - (j + 1))) {
+					h++;
+					break;
+				}
 			}
 		}
-	}
-	aux_sol.clear();
-	//sum inverse diagonal
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		aux_sol.push_back(queens_sol[i] + (i + 1));
-	}
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		for (size_t j = i + 1; j < NREINAS; j++)
-		{
-			if (aux_sol[i] == aux_sol[j])
-			{
-				h++;
-				break;
+		//sum inverse diagonal
+		for (size_t i = 0; i < solution_vector.size(); i++) {
+			for (size_t j = i + 1; j < solution_vector.size(); j++) {
+				if ((solution_vector[i] + (i + 1))
+						== (solution_vector[j] + (j + 1))) {
+					h++;
+					break;
+				}
 			}
 		}
+		return h;
 	}
 
-	return h;
-}
+	vector<int> neighbour(std::vector<int> solution_vector) {
+		int64_t i = rand() % solution_vector.size() + 1;
+		int64_t mov = (rand() % solution_vector.size() + 1);
+		solution_vector[i - 1] = mov;
 
-vector<int> neighbour(vector<int> init_sol) {
-	srand(time(NULL));
-	int i = rand() % NREINAS + 1;
-	srand(time(NULL));
-	int mov = (rand() % NREINAS + 1) - i;
-	mov = (mov < 0) ? mov *= -1 : mov;
-	mov = (mov == 0) ? mov = 1 : mov;
-	init_sol[i - 1] = mov;
-	return init_sol;
-}
-
-void print_solution(vector<int> s) {
-	char table[NREINAS][NREINAS] = {};
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		table[i][s[i] - 1] = 'Q';
+		return solution_vector;
 	}
-	for (size_t i = 0; i < NREINAS; i++)
-	{
-		for (size_t j = 0; j < NREINAS; j++)
-		{
-			if (table[i][j] != 'Q')
-			{
-				printf(" _ ");
+
+	void print_solution(const std::vector<int> &solution_vector) {
+		for (int i = 0; i < solution_vector.size(); i++) {
+			for (int j = 0; j < solution_vector.size(); j++) {
+				if (j == solution_vector[i] - 1) {
+					std::cout << " Q ";
+				} else {
+					std::cout << " _ ";
+				}
 			}
-			else { printf(" %c ", table[i][j]); }
+			std::cout << "\n";
 		}
-		printf("\n");
+
+		std::cout << "\nSolucion: ";
+		for (int x : solution_vector) {
+			std::cout << x << " ";
+		}
+		std::cout << "\nCost:" << cost(solution_vector) << std::endl;
 	}
-	printf("\nSolucion: ");
-	for (int x : s)
-	{
-		printf("%d ", x);
+
+	inline bool search_repeat(const std::vector<int> &prob_neighbor, const std::vector<std::vector<int>> &neighborhood) {
+		return find(neighborhood.begin(), neighborhood.end(), prob_neighbor) != neighborhood.end();
 	}
-	printf("\nh: %d ", cost(s));
-	printf("\n");
 }
 
-inline bool searchrepet(vector<int> q, const vector<vector<int>>& s) {
-	return find(s.begin(), s.end(), q) != s.end();
-}
 
 int main() {
-	vector<int> n_s;
-	vector<int> s = initial_solution();
-	printf("\nSolucion inicial: ");
-	print_vector(s);
-	printf("h: %d", cost(s));
-	printf("\n");
+	vector<int> current_solution = localsearch::initial_solution();
+	vector<int> neighbor_solution;
+	vector<vector<int>> neighborhood;
 	int i = 0;
 	do {
-		while (searchrepet(n_s = neighbour(s), neighbour_sys)) {}
-		neighbour_sys.push_back(n_s);
-		//printf("% d -", i);
-		if (cost(s) > cost(n_s)){
-			s = n_s;
+		while (localsearch::search_repeat(neighbor_solution = localsearch::neighbour(current_solution), neighborhood)) {}
+		neighborhood.push_back(neighbor_solution);
+		if (localsearch::cost(neighbor_solution) < localsearch::cost(current_solution)) {
+			current_solution = neighbor_solution;
 			i = 0;
-			print_vector(s);
-			printf("h: %d", cost(s));
-			printf("\n");
-			neighbour_sys.clear();
+			neighborhood.clear();
+		} else {
+			i++;
 		}
-		else { i++; }
-	} while (i < t_neighbor);
-	printf("\n");
-	print_solution(s);
+	} while (i < number_neighbor);
+	localsearch::print_solution(current_solution);
 	//system("pause");
 	return 0;
 }
