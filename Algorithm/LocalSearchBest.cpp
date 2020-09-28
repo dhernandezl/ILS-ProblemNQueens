@@ -1,11 +1,3 @@
-/*
- * LocalSearchSet.cpp
- *
- *  Created on: 28 jul. 2020
- *      Author: DHL-SIS-ING
- */
-
-
 #include "LocalSearchBest.h"
 #include <iostream>
 #include <vector>
