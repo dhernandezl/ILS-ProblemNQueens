@@ -61,9 +61,9 @@ namespace localsearch{
 	}
 
 	void print_solution(const std::vector<int> &solution_vector) {
-		for (int i = 0; i < solution_vector.size(); i++) {
-			for (int j = 0; j < solution_vector.size(); j++) {
-				if (j == solution_vector[i] - 1) {
+		for (std::vector<int>::size_type i = 0; i != solution_vector.size(); i++){
+			for (std::vector<int>::size_type j = 0; j != solution_vector.size();j++) {
+				if (j == (std::size_t) solution_vector[i] - 1) {
 					std::cout << " Q ";
 				} else {
 					std::cout << " _ ";
@@ -71,7 +71,6 @@ namespace localsearch{
 			}
 			std::cout << "\n";
 		}
-
 		std::cout << "\nSolucion: ";
 		for (int x : solution_vector) {
 			std::cout << x << " ";
