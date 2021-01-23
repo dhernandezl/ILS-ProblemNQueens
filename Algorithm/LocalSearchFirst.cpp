@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <array>
+#include <ctime>
+#include <stdlib.h>
 #define NQUEENS 16 // 8
 #define number_neighbor 15
 
@@ -56,7 +58,6 @@ namespace localsearch{
 		int64_t i = rand() % solution_vector.size() + 1;
 		int64_t mov = (rand() % solution_vector.size() + 1);
 		solution_vector[i - 1] = mov;
-
 		return solution_vector;
 	}
 
@@ -85,6 +86,7 @@ namespace localsearch{
 
 
 int main() {
+	srand(time(NULL)); //initialize random seed
 	vector<int> current_solution = localsearch::initial_solution();
 	vector<int> neighbor_solution;
 	vector<vector<int>> neighborhood;
