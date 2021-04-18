@@ -1,4 +1,4 @@
-# Iterated Local Search for Problem NQueens
+# Iterated Local Search for Problem N Queens
 The **Local Search (LS)** is the basis of many methods used for optimization problems. Your process can be seen as iterative starting with an initial solution and improving it by making local modifications. Its system is based on the search for neighborhoods that obtain a better solution. The design of the neighborhood is crucial to the performance of the algorithm. The neighborhood is all possible solutions to consider in each search.
 
 ```
@@ -29,6 +29,10 @@ proccedure iterated local search
   until termination criteria
   return s*
 ```
+**Problem N Queens** - The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each other.
 
-The eight queens problem is a very popular strategy that consists of placing eight queens within a chessboard without threatening them. Finding the solution for different dimensions is the same as finding the solution for a minimal problem.
-
+## Result of experimentation
+Rule | 5 neighbours | 10 neighbours| 15 neighbours
+------------ | ------------- | ------------- | -------------
+best-improvement| h: 10 ↔ 14 | h: 8 ↔ 9 | h: 6 ↔ 8
+first-improvement| h: 10 ↔ 15| h: 12 ↔ 10 | h: 6 ↔ 9
