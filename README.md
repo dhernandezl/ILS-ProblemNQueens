@@ -32,7 +32,18 @@ proccedure iterated local search
 **Problem N Queens** - The N Queen is the problem of placing N chess queens on an N×N chessboard so that no two queens attack each other.
 
 ## Result of experimentation
+Table of generation of neighborhoods for problem of 16 queens (h = Cost).
 Rule | 5 neighbours | 10 neighbours| 15 neighbours
 ------------ | ------------- | ------------- | -------------
 best-improvement| h: 10 ↔ 14 | h: 8 ↔ 9 | h: 6 ↔ 8
 first-improvement| h: 10 ↔ 15| h: 12 ↔ 10 | h: 6 ↔ 9
+
+Table of ISL results by iterations in problem of 16 queens.
+Iterations | Resultant vector | Cost (h)
+:-----------: | ------------- | :-----------:
+10| 14 8 1 8 1 5 1 1 12 7 2 2 15 14 1 14 | 10
+25| 13 1 1 8 3 1 6 9 10 12 10 2 5 10 1 6 | 10
+50| 7 5 3 15 12 9 4 1 1 6 1 13 15 9 14 4 | 6
+100| 3 15 15 5 1 1 14 6 9 14 4 1 16 13 7 12 | 6
+
+
