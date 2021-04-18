@@ -1,6 +1,8 @@
 # Iterated Local Search for Problem NQueens
 The Local Search (LS) is the basis of many methods used for optimization problems. Your process can be seen as iterative starting with an initial solution and improving it by making local modifications. Its system is based on the search for neighborhoods that obtain a better solution. The design of the neighborhood is crucial to the performance of the algorithm. The neighborhood is all possible solutions to consider in each search.
 
+![image](https://user-images.githubusercontent.com/45026559/115155094-f5ade780-a043-11eb-922a-cca9caa1b9fa.png)
+
 <p>The neighborhood search and pivot rule used for replacement are usually:</p>
 <ol type="A">
   <li>Select the best neighbor of all (best-improvement rule).</li>
