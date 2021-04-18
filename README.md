@@ -11,8 +11,7 @@ proccedure local search
   end
   return s
 ```
-
-<p>The neighborhood search and pivot rule used for replacement are usually:</p>
+S generates several candidate solutions that can be obtained by applying specific modifications or "moves" to s. The neighborhood search and pivot rule used for replacement are usually:
 <ol type="A">
   <li>Select the best neighbor of all (best-improvement rule).</li>
   <li>Select the first neighbor that improves the solution (first-improvement rule).</li>
@@ -20,5 +19,3 @@ proccedure local search
 <p>
 The eight queens problem is a very popular strategy that consists of placing eight queens within a chessboard without threatening them. Finding the solution for different dimensions is the same as finding the solution for a minimal problem.
 </p>
-
-![image](https://user-images.githubusercontent.com/45026559/115155094-f5ade780-a043-11eb-922a-cca9caa1b9fa.png)
