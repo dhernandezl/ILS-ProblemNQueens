@@ -11,9 +11,11 @@ proccedure local search
   end
   return s
 ```
-S generates several candidate solutions that can be obtained by applying specific modifications or "moves" to S. The neighborhood search and pivot rule used for replacement are usually:
-A. Select the best neighbor of all (best-improvement rule).
-B. Select the first neighbor that improves the solution (first-improvement rule).
+**S** generates several candidate solutions that can be obtained by applying specific modifications or "moves" to **S**. The neighborhood search and pivot rule used for replacement are usually:
+* Select the best neighbor of all (best-improvement rule).
+* Select the first neighbor that improves the solution (first-improvement rule).
+
+**Iterated local search (ILS)** is based on a simple but successful idea, where it avoids rebooting found solutions like reboot approaches do, instead ILS starts with a solution s * and successively applies local search and disturbance to the optimal solution local. This procedure is performed a specified number of iterations or until a satisfactory solution has been found.
 
 The eight queens problem is a very popular strategy that consists of placing eight queens within a chessboard without threatening them. Finding the solution for different dimensions is the same as finding the solution for a minimal problem.
 
