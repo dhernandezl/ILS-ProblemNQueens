@@ -46,6 +46,29 @@ Iterations | Resultant vector | Cost (h)
 50| 7 5 3 15 12 9 4 1 1 6 1 13 15 9 14 4 | 6
 100| 3 15 15 5 1 1 14 6 9 14 4 1 16 13 7 12 | 6
 
+**Result of application**
+```
+ _  _  _  _  _  _  _  _  Q  _  _  _  _  _  _  _ 
+ _  _  _  _  _  _  _  _  _  Q  _  _  _  _  _  _ 
+ _  Q  _  _  _  _  _  _  _  _  _  _  _  _  _  _ 
+ _  _  _  _  _  _  _  _  _  _  _  _  _  Q  _  _ 
+ _  _  _  _  _  _  _  Q  _  _  _  _  _  _  _  _ 
+ _  _  _  _  _  _  _  _  _  _  _  _  _  _  Q  _ 
+ _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  Q 
+ _  _  _  _  _  _  _  Q  _  _  _  _  _  _  _  _ 
+ _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  Q 
+ _  _  _  Q  _  _  _  _  _  _  _  _  _  _  _  _ 
+ _  _  _  _  _  _  Q  _  _  _  _  _  _  _  _  _ 
+ _  _  Q  _  _  _  _  _  _  _  _  _  _  _  _  _ 
+ _  _  _  _  _  _  _  _  _  _  Q  _  _  _  _  _ 
+ Q  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _ 
+ Q  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _ 
+ _  _  _  _  _  Q  _  _  _  _  _  _  _  _  _  _ 
+
+Solution: 9 10 2 14 8 15 16 8 16 4 7 3 11 1 1 6 
+Cost:8
+```
+
 ## References
 To delve into local search algorithms, check out the following references:
 - T. Stützle and R. Ruiz, “Iterated local search,” Handb. Heuristics, vol. 1–2, pp. 579–605, 2018, isbn.9783319071244, doi.10.1007/978-3-319-07124-4_8.
