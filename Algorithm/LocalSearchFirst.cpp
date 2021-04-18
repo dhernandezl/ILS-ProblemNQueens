@@ -72,7 +72,7 @@ namespace localsearch{
 			}
 			std::cout << "\n";
 		}
-		std::cout << "\nSolucion: ";
+		std::cout << "\nSolution: ";
 		for (int x : solution_vector) {
 			std::cout << x << " ";
 		}
