@@ -38,7 +38,7 @@ Rule | 5 neighbours | 10 neighbours| 15 neighbours
 best-improvement| h: 10 ↔ 14 | h: 8 ↔ 9 | h: 6 ↔ 8
 first-improvement| h: 10 ↔ 15| h: 12 ↔ 10 | h: 6 ↔ 9
 
-Table of ISL results by iterations in problem of 16 queens.
+Table of ILS results by iterations in problem of 16 queens.
 Iterations | Resultant vector | Cost (h)
 :-----------: | ------------- | :-----------:
 10| 14 8 1 8 1 5 1 1 12 7 2 2 15 14 1 14 | 10
