@@ -69,6 +69,12 @@ Solution: 9 10 2 14 8 15 16 8 16 4 7 3 11 1 1 6
 Cost:8
 ```
 
+## Get the source
+Clone the Git repository from GitHub
+```github
+git clone https://github.com/dhernandezl/ILS-ProblemNQueens
+```
+
 ## References
 To delve into local search algorithms, check out the following references:
 - T. Stützle and R. Ruiz, “Iterated local search,” Handb. Heuristics, vol. 1–2, pp. 579–605, 2018, isbn.9783319071244, doi.10.1007/978-3-319-07124-4_8.
