@@ -72,7 +72,7 @@ Cost:8
 ## Get the source
 Clone the Git repository from GitHub
 ```github
-git clone https://github.com/dhernandezl/ILS-ProblemNQueens
+git clone https://github.com/dhernandezl/ILS-ProblemNQueens.git
 ```
 
 ## References
